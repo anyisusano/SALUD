@@ -1,0 +1,274 @@
+/* 
+ * Estilos para el sistema de registro médico
+ * Color principal: #071739 (azul oscuro profesional)
+ */
+
+/* Estructura principal */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #e0f7fa 0%, #A4B5C4 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    width: 1000px;
+    height: auto;
+    min-height: 650px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(7, 23, 57, 0.2); /* Sombra con color principal */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background: white;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efecto hover para el contenedor */
+.main-container:hover {
+    box-shadow: 0 15px 35px rgba(7, 23, 57, 0.3); /* Sombra más pronunciada al hover */
+}
+
+/* Sección de imagen */
+.login-image {
+    width: 45%;
+    background: 
+        linear-gradient(rgba(7, 23, 57, 0.4), /* Overlay con color principal */
+        rgba(7, 23, 57, 0.4)),
+        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    color: white;
+}
+
+/* Overlay de la imagen */
+.image-overlay {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título de la imagen */
+.image-overlay h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Texto de la imagen */
+.image-overlay p {
+    font-weight: 300;
+    font-size: 1rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Contenedor del formulario */
+.login-container {
+    width: 55%;
+    padding: 50px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Título principal */
+.login-container h4 {
+    color: #071739; /* Color principal */
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* Subtítulo */
+.subtitle {
+    color: #616161;
+    margin-bottom: 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Divisor */
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, #071739 0%, rgba(7, 23, 57, 0.1) 100%); /* Gradiente con color principal */
+    margin: 1.8rem 0;
+    border-radius: 2px;
+}
+
+/* Campos del formulario */
+.input-field {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-field label {
+    color: #616161;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transform-origin: 0 0;
+}
+
+.input-field input {
+    border-radius: 4px;
+    padding-left: 40px !important;
+    border: 1px solid #e0e0e0 !important;
+    height: 48px !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para campos enfocados */
+.input-field input:focus {
+    border: 1px solid #071739 !important; /* Color principal */
+    box-shadow: 0 0 0 3px rgba(7, 23, 57, 0.1) !important; /* Sombra con color principal */
+}
+
+.input-field input:focus + label {
+    color: #071739 !important; /* Color principal */
+}
+
+/* Iconos de los campos */
+.input-field .prefix {
+    color: #071739; /* Color principal */
+    position: absolute;
+    width: 3rem;
+    font-size: 1.5rem;
+    top: 12px;
+    left: 5px;
+}
+
+.input-field .prefix.active {
+    color: #071739; /* Color principal */
+}
+
+/* Checkbox términos y condiciones */
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #071739; /* Color principal */
+    background-color: #071739; /* Color principal */
+}
+
+/* Enlaces de términos */
+.terms-container a {
+    color: #071739; /* Color principal */
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.terms-container a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.btn {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 24px;
+}
+
+/* Botón principal */
+.btn.darken-2 {
+    background-color: #071739 !important; /* Color principal */
+    box-shadow: 0 4px 6px rgba(7, 23, 57, 0.2); /* Sombra con color principal */
+}
+
+.btn.darken-2:hover {
+    background-color: #071739 !important; /* Color principal */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(7, 23, 57, 0.3); /* Sombra con color principal */
+}
+
+/* Botón secundario */
+.btn.grey.lighten-1 {
+    background-color: #e0e0e0 !important;
+    color: #424242 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn.grey.lighten-1:hover {
+    background-color: #bdbdbd !important;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de términos */
+.terms-container {
+    margin: 1.5rem 0;
+}
+
+/* Diseño responsive */
+@media (max-width: 992px) {
+    .main-container {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+    }
+    
+    .login-image, 
+    .login-container {
+        width: 100%;
+    }
+    
+    .login-image {
+        height: 200px;
+    }
+    
+    .login-container {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+    
+    .row .col.s6 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .options-row .col.s6 {
+        text-align: center !important;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animaciones */
+.input-field input,
+.btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Validación */
+input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 1px solid #e0e0e0 !important;
+}
+
+input:invalid:not(:focus):not(:placeholder-shown) + label {
+    color: #9e9e9e !important;
+}
+
+/* Mejoras en los iconos */
+.material-icons {
+    vertical-align: middle;
+}
