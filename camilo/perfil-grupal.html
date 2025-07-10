@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamFlow - Dashboard Grupal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/grupal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-grupal">
+       
+        <div class="team-header">
+            <div class="team-info">
+                <div class="team-logo">TF</div>
+                <div class="team-name">
+                    <h2>Equipo Saludable</h2>
+                    <p>Departamento de Desarrollo</p>
+                </div>
+            </div>
+            <div class="team-stats">
+                <div class="stat-item">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label">Participación</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">1,245</div>
+                    <div class="stat-label">Puntos totales</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Recompensas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Días seguidos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-progress card-hover">
+            <div class="progress-header">
+                <div class="progress-title">Progreso Semanal</div>
+                <div class="progress-days">Semana 24</div>
+            </div>
+            <div class="progress-grid">
+                <div class="day-column">
+                    <div class="day-name">Lun</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 75%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Mar</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 90%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Mié</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 60%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Jue</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 45%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Vie</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 80%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Sáb</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 30%"></div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <div class="day-name">Dom</div>
+                    <div class="day-progress">
+                        <div class="progress-fill" style="height: 10%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--primary);"></div>
+                    <span>Pausas completadas</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--gray);"></div>
+                    <span>Pausas pendientes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-pause card-hover">
+            <div class="next-pause-header">
+                <div class="next-pause-title">Próxima Pausa</div>
+                <div class="pause-type">Grupal <i class="fas fa-users"></i></div>
+            </div>
+            <div class="pause-timer">11:30 AM</div>
+            <div class="pause-exercises">
+                <div class="exercise-item">
+                    <div class="exercise-icon"><i class="fas fa-hands"></i></div>
+                    <div>Estiramiento de brazos</div>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-icon"><i class="fas fa-undo"></i></div>
+                    <div>Rotación de cuello</div>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-icon"><i class="fas fa-walking"></i></div>
+                    <div>Caminata en el lugar</div>
+                </div>
+                <div class="exercise-item">
+                    <div class="exercise-icon"><i class="fas fa-lungs"></i></div>
+                    <div>Ejercicios de respiración</div>
+                </div>
+            </div>
+            <button class="start-button"><a href="./pausagrupal.html">INICIAR PAUSA GRUPAL</a> <i class="fas fa-play"></i></button>
+        </div>
+
+        <div class="team-members card-hover">
+            <div class="members-header">
+                <div class="members-title">Miembros</div>
+                <div class="members-count">8/10 activos</div>
+            </div>
+            <div class="members-list">
+                <div class="member-item">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Pérez" class="member-avatar">
+                    <div class="member-info">
+                        <div class="member-name">Ana Pérez</div>
+                        <div class="member-role">Líder de equipo</div>
+                    </div>
+                    <div class="member-points">320 pts</div>
+                </div>
+                <div class="member-item">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Ruiz" class="member-avatar">
+                    <div class="member-info">
+                        <div class="member-name">Carlos Ruiz</div>
+                        <div class="member-role">Desarrollador</div>
+                    </div>
+                    <div class="member-points">285 pts</div>
+                </div>
+                <div class="member-item">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Laura Gómez" class="member-avatar">
+                    <div class="member-info">
+                        <div class="member-name">Laura Gómez</div>
+                        <div class="member-role">Diseñadora</div>
+                    </div>
+                    <div class="member-points">275 pts</div>
+                </div>
+                <div class="member-item">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Juan Díaz" class="member-avatar">
+                    <div class="member-info">
+                        <div class="member-name">Juan Díaz</div>
+                        <div class="member-role">Desarrollador</div>
+                    </div>
+                    <div class="member-points">195 pts</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-ranking card-hover">
+            <div class="ranking-header">
+                <div class="ranking-title">Ranking Semanal</div>
+                <div class="ranking-period">Del 12 al 18 Jun</div>
+            </div>
+            <div class="ranking-list">
+                <div class="ranking-item">
+                    <div class="ranking-position">1</div>
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana" class="ranking-avatar">
+                    <div class="ranking-name">Ana Pérez</div>
+                    <div class="ranking-points">125 pts</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-position">2</div>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" class="ranking-avatar">
+                    <div class="ranking-name">Carlos Ruiz</div>
+                    <div class="ranking-points">110 pts</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-position">3</div>
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Laura" class="ranking-avatar">
+                    <div class="ranking-name">Laura Gómez</div>
+                    <div class="ranking-points">95 pts</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-position">4</div>
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Juan" class="ranking-avatar">
+                    <div class="ranking-name">Juan Díaz</div>
+                    <div class="ranking-points">80 pts</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-position">5</div>
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="María" class="ranking-avatar">
+                    <div class="ranking-name">María López</div>
+                    <div class="ranking-points">75 pts</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-rewards card-hover">
+            <div class="rewards-header">
+                <div class="rewards-title">Recompensas</div>
+                <div class="rewards-badge">3 disponibles</div>
+            </div>
+            <div class="rewards-grid">
+                <div class="reward-item">
+                    <div class="reward-icon"><i class="fas fa-mug-hot"></i></div>
+                    <div class="reward-name">Café gratis</div>
+                    <div class="reward-points">200 puntos</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-icon"><i class="fas fa-clock"></i></div>
+                    <div class="reward-name">Salida temprano</div>
+                    <div class="reward-points">500 puntos</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="reward-name">Almuerzo ejecutivo</div>
+                    <div class="reward-points">350 puntos</div>
+                </div>
+                <div class="reward-item">
+                    <div class="reward-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="reward-name">Día saludable</div>
+                    <div class="reward-points">700 puntos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de animación para el progreso semanal
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            // Pequeño retraso para que se vea la animación
+            setTimeout(() => {
+                progressBars.forEach(bar => {
+                    const targetHeight = bar.style.height;
+                    bar.style.height = '0%';
+                    
+                    setTimeout(() => {
+                        bar.style.height = targetHeight;
+                    }, 100);
+                });
+            }, 300);
+            
+            // Actualizar el temporizador de la próxima pausa
+            function updateTimer() {
+                const now = new Date();
+                const nextPause = new Date();
+                
+                // Configurar la próxima pausa a las 11:30 AM
+                nextPause.setHours(11, 30, 0, 0);
+                
+                // Si ya pasó la pausa de hoy, configurar para mañana
+                if (now > nextPause) {
+                    nextPause.setDate(nextPause.getDate() + 1);
+                }
+                
+                const diff = nextPause - now;
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.querySelector('.pause-timer').textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            updateTimer();
+            setInterval(updateTimer, 1000);
+            
+            // Efecto hover para las recompensas
+            const rewards = document.querySelectorAll('.reward-item');
+            rewards.forEach(reward => {
+                reward.addEventListener('mouseenter', function() {
+                    this.querySelector('.reward-icon').style.transform = 'rotate(15deg) scale(1.1)';
+                });
+                
+                reward.addEventListener('mouseleave', function() {
+                    this.querySelector('.reward-icon').style.transform = 'rotate(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

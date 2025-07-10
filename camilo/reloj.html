@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Salud - Panel de Monitoreo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/reloj.css">
+</head>
+<body>
+  <div class="dashboard">
+    
+    <div class="sidebar">
+      <div class="profile">
+        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="Perfil" class="profile-img">
+        <h3>Juan Pérez</h3>
+        <p>Usuario Premium</p>
+      </div>
+      
+      <div class="nav-menu">
+        <div class="nav-item active">
+          <i class='bx bx-heart'></i>
+          <span>Salud</span>
+        </div>
+        <div class="nav-item">
+          <i class='bx bx-stats'></i>
+          <span>Estadísticas</span>
+        </div>
+        <div class="nav-item">
+          <i class='bx bx-calendar'></i>
+          <span>Calendario</span>
+        </div>
+        <div class="nav-item">
+          <i class='bx bx-cog'></i>
+          <span>Ajustes</span>
+        </div>
+      </div>
+      
+      <div class="clock-container">
+        <div class="clock">
+          <div class="time" id="time">00:00:00</div>
+          <div class="date" id="date">Lunes, 1 de Enero</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="main-content">
+      <div class="header">
+        <h1>Mi Panel de Salud</h1>
+        <div class="notification">
+          <i class='bx bx-bell'></i>
+          <span class="notification-badge">2</span>
+        </div>
+      </div>
+      
+      <div class="cards-container">
+        
+        <div class="card heart-rate animate__animated animate__fadeInUp">
+          <div class="card-header">
+            <h4 class="card-title">Pulsaciones</h4>
+            <div class="card-icon">
+              <i class='bx bx-heart'></i>
+            </div>
+          </div>
+          <div class="card-value">78 <span>bpm</span></div>
+          <p class="card-description">Ritmo cardíaco normal</p>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress" style="width: 65%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card activity animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="card-header">
+            <h4 class="card-title">Actividad Física</h4>
+            <div class="card-icon">
+              <i class='bx bx-run'></i>
+            </div>
+          </div>
+          <div class="card-value">Caminata</div>
+          <p class="card-description">Ligera - 45 minutos</p>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card break animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="card-header">
+            <h4 class="card-title">Pausa Activa</h4>
+            <div class="card-icon">
+              <i class='bx bx-time-five'></i>
+            </div>
+          </div>
+          <div class="card-value" id="break-timer">1h 45m</div>
+          <p class="card-description">Tiempo restante</p>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress" style="width: 30%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="action-btn" id="start-break-btn">
+          <i class='bx bx-alarm'></i> Iniciar Pausa
+        </button>
+        <button class="action-btn secondary" id="reminder-btn">
+          <i class='bx bx-alarm-exclamation'></i> Configurar Recordatorio
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de alerta -->
+  <div class="alert-modal" id="alert-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class='bx bx-alarm-exclamation'></i>
+        <h3>¡Hora de la Pausa Activa!</h3>
+      </div>
+      <div class="modal-body">
+        <p>Es momento de tomar un descanso. Realiza algunos ejercicios para mantener tu salud:</p>
+        <ul>
+          <li>Estiramientos de cuello y hombros</li>
+          <li>Flexiones de muñecas</li>
+          <li>Respiración profunda</li>
+          <li>Caminar por 5 minutos</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn" id="close-alert">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Mostrar alerta inmediatamente al cargar la página
+  setTimeout(() => {
+    showBreakAlert();
+  }, 1000); // Pequeño retraso para que cargue todo primero
+
+  // Resto del código del reloj y temporizador...
+  function updateClock() {
+    const now = new Date();
+    const timeElement = document.getElementById('time');
+    const dateElement = document.getElementById('date');
+    
+    // Formatear hora
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    
+    // Formatear fecha
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    dateElement.textContent = now.toLocaleDateString('es-ES', options);
+  }
+  
+  // Actualizar reloj cada segundo
+  setInterval(updateClock, 1000);
+  updateClock(); // Llamada inicial
+  
+  // Temporizador de pausa activa
+  let breakInterval;
+  let breakTime = 105 * 60; // 1 hora 45 minutos en segundos
+  
+  function updateBreakTimer() {
+    const hours = Math.floor(breakTime / 3600);
+    const minutes = Math.floor((breakTime % 3600) / 60);
+    
+    document.getElementById('break-timer').textContent = 
+      `${hours}h ${minutes.toString().padStart(2, '0')}m`;
+    
+    // Actualizar barra de progreso
+    const totalTime = 105 * 60; // 1h 45m en segundos
+    const progress = (breakTime / totalTime) * 100;
+    document.querySelector('.break .progress').style.width = `${progress}%`;
+    
+    // Cambiar color cuando quedan 15 minutos
+    if (breakTime <= 15 * 60) {
+      document.querySelector('.break .progress').style.background = '#f72585';
+    }
+    
+    breakTime--;
+    
+    // Mostrar alerta cuando el tiempo llega a 0
+    if (breakTime < 0) {
+      clearInterval(breakInterval);
+      showBreakAlert();
+      resetBreakTimer();
+    }
+  }
+  
+  function resetBreakTimer() {
+    breakTime = 105 * 60; // Reset a 1 hora 45 minutos
+    updateBreakTimer();
+  }
+  
+  // Iniciar temporizador de pausa
+  document.getElementById('start-break-btn').addEventListener('click', function() {
+    clearInterval(breakInterval);
+    resetBreakTimer();
+    breakInterval = setInterval(updateBreakTimer, 1000);
+    showToast('¡Temporizador de pausa activa iniciado!');
+  });
+  
+  // Configurar recordatorio
+  document.getElementById('reminder-btn').addEventListener('click', function() {
+    showBreakAlert();
+  });
+  
+  // Mostrar alerta de pausa activa
+  function showBreakAlert() {
+    const modal = document.getElementById('alert-modal');
+    modal.classList.add('active');
+    
+    // Reproducir sonido de alerta
+    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+    audio.play();
+  }
+  
+  // Cerrar alerta
+  document.getElementById('close-alert').addEventListener('click', function() {
+    document.getElementById('alert-modal').classList.remove('active');
+  });
+  
+  // Mostrar notificación toast
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        document.body.removeChild(toast);
+      }, 300);
+    }, 3000);
+  }
+  
+  // Simular notificación cada 30 minutos (para demostración)
+  setInterval(() => {
+    showToast('Recuerda mantener una buena postura');
+  }, 1800000);
+});
+</script>
+</body>
+</html>
